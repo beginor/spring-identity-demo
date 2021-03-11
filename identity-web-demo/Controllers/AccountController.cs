@@ -10,18 +10,24 @@ using IdentityWebDemo.Entities;
 namespace IdentityWebDemo.Controllers {
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/account")]
     public class AccountController {
 
+        private ILogger<AccountController> logger;
         private UserManager<AppUser> userManager;
 
-        public AccountController(UserManager<AppUser> userManager) {
+        public AccountController(
+            ILogger<AccountController> logger,
+            UserManager<AppUser> userManager
+        ) {
+            this.logger = logger;
             this.userManager = userManager;
         }
 
         [HttpGet("")]
         public string[] GetAll() {
             var usernames = from user in userManager.Users
+                orderby user.CreateTime
                 select user.UserName;
             return usernames.ToArray();
         }
