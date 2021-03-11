@@ -12,4 +12,4 @@ trim_trailing_whitespace = false
 insert_final_newline = true
 
 [*.{json,md}]
-indent_size = 4
+indent_size = 2

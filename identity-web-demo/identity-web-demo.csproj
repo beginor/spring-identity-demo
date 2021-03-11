@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.3.6" />
+    <PackageReference Include="NHibernate.AspNetCore.Identity" Version="5.0.4" />
+    <PackageReference Include="NHibernate.Mapping.Attributes" Version="5.1.0" />
+    <PackageReference Include="NHibernate.NetCore" Version="5.0.4" />
+    <PackageReference Include="NpgSql" Version="5.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
