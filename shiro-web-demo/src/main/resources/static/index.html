@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Identity Test</title>
+</head>
+<body>
+<p>
+    <button type="button" onclick="getUserInfo()">Get User Info</button>
+</p>
+
+<p>
+    <button type="button" onclick="login()">Login</button>
+</p>
+
+<p id="result"></p>
+
+<script>
+async function getUserInfo() {
+    const res = await fetch('api/account/info');
+    const userInfo = await res.text();
+    document.querySelector('#result').innerHTML = userInfo;
+    console.log(userInfo);
+}
+
+async function login() {
+    const loginInfo = {
+        username: 'admin',
+        password: '1a2b3c4D',
+        rememberMe: true
+    };
+    const res = await fetch(
+        'api/account/login',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginInfo),
+        }
+    );
+    const userInfo = await res.text();
+    document.querySelector('#result').innerHTML = userInfo;
+    console.log(userInfo);
+}
+</script>
+</body>
+</html>
