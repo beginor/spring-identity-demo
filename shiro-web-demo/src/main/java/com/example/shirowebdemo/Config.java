@@ -10,9 +10,9 @@ import org.springframework.context.annotation.*;
 import org.apache.shiro.realm.Realm;
 
 @Configuration
-public class ShiroConfig {
+public class Config {
     
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+//    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Bean
     public Realm realm(DataSource dataSource) {
         var realm = new JdbcRealm();
