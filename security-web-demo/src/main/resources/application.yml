@@ -1,1 +1,10 @@
-
+server:
+  port: 2021
+  servlet:
+    context-path: /spring
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/spring_demo
+    username: postgres
+    password: postgis_11
+    driver-class-name: org.postgresql.Driver
