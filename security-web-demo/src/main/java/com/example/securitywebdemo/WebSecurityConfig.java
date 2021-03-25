@@ -2,7 +2,9 @@ package com.example.securitywebdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,6 +16,7 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableWebSecurity()
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     private DataSource dataSource;
@@ -22,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     public WebSecurityConfig(DataSource dataSource) {
         this.dataSource = dataSource;
+        
     }
 
     @Override
